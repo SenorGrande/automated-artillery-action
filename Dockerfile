@@ -1,6 +1,9 @@
 # Node Alpine container image
 FROM node:14.14.0
 
+# Install htmldoc
+RUN apt update -y && apt upgrade -y && apt install htmldoc -y
+
 # Install artillery globally
 RUN npm i -g artillery --allow-root --unsafe-perm=true
 

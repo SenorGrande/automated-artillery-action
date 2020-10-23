@@ -7,7 +7,9 @@ artillery run --output report.json $1
 
 artillery report --output report.html report.json
 
-OUTPUT_PDF="report.html"
+htmldoc --webpage -f report.pdf report.html
+
+OUTPUT_PDF="report.pdf"
 
 FILE_NAME=$(basename $OUTPUT_PDF)
 DIR=$(dirname $OUTPUT_PDF)
