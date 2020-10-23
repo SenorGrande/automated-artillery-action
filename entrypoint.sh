@@ -7,7 +7,7 @@ artillery run --output report.json $1
 
 artillery report --output report.html report.json
 
-pandoc report.html -t latex -o report.pdf
+weasyprint report.html report.pdf
 
 OUTPUT_PDF="report.pdf"
 
