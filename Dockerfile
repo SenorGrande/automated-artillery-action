@@ -1,7 +1,7 @@
 # Node Alpine container image
 FROM node:14.14.0-alpine3.12
 
-USER root
+USER node
 
 # Install artillery globally
 RUN npm i -g artillery
