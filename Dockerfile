@@ -1,5 +1,5 @@
 # Node Alpine container image
-FROM node:14.14.0-alpine3.12
+FROM node:14.14.0
 
 # Install artillery globally
 RUN npm i -g artillery --allow-root --unsafe-perm=true
