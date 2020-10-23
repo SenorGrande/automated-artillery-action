@@ -5,7 +5,7 @@ FROM node:14.14.0
 RUN apt update -y && apt upgrade -y && apt install python3 python3-pip -y
 
 # Install python package
-RUN pip3 install weasyprint
+RUN pip3 install weasyprint cairocffi
 
 # Install artillery globally
 RUN npm i -g artillery --allow-root --unsafe-perm=true
