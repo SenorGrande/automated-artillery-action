@@ -2,10 +2,10 @@
 FROM node:14.14.0
 
 # Install python & pip
-RUN apt update -y && apt upgrade -y && apt install python3 python3-pip -y
+RUN apt update -y && apt upgrade -y && apt install python python3-pip -y
 
 # Install python package
-RUN pip3 install weasyprint cairocffi libcairo2
+RUN pip install weasyprint
 
 # Install artillery globally
 RUN npm i -g artillery --allow-root --unsafe-perm=true
