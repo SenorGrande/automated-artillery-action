@@ -2,7 +2,7 @@
 FROM node:14.14.0
 
 # Install python & pip
-RUN apt update -y && apt upgrade -y && apt install python python3-pip cairo pango gdk-pixbuf py3-cffi py3-pillow py-lxml -y
+RUN apt update -y && apt upgrade -y && apt install python python3-pip cairo -y
 
 # Install python package
 RUN pip3 install weasyprint
