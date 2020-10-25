@@ -1,15 +1,18 @@
-# action.yml
 name: 'Automated Artillery Action'
 description: 'Automate Artillery Load Tests'
 branding:
   icon: crosshair
   color: red
 inputs:
-  artillery_path:  # id of input
+  artillery_path:
     description: 'Path of Artillery YAML File'
     required: true
+  output_path:
+    description: 'Path to push reports to'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.artillery_path }}
+    - ${{ inputs.output_path }}

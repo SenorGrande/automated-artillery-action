@@ -3,11 +3,12 @@
 set -e
 echo "Running Load Test"
 
+# $1 is the path of the Load Test
+# $2 is the output path for reports
+
 artillery run --output report.json $1
-
-artillery report --output report.html report.json
-
-OUTPUT_PDF="report.html"
+OUTPUT_PDF=$2/$(date +"%y-%m-%d-%H-%M-%S").html
+artillery report --output $OUTPUT_PDF report.json
 
 FILE_NAME=$(basename $OUTPUT_PDF)
 DIR=$(dirname $OUTPUT_PDF)
