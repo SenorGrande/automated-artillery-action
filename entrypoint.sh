@@ -51,7 +51,7 @@ echo '{
 
 STATUSCODE=$(curl --silent --output /dev/stderr --write-out "%{http_code}" \
             -i -X PUT -H "Authorization: token $GITHUB_TOKEN" -d @payload.json \
-            https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/${OUTPUT_PATH})
+            https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/${OUTPUT_PDF})
 
 if [ $((STATUSCODE/100)) -ne 2 ]; then
   echo "Github's API returned $STATUSCODE"
