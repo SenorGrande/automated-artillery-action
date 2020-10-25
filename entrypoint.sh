@@ -9,15 +9,14 @@ echo "Running Load Test"
 artillery run --output report.json $1
 
 OUTPUT_PDF=$(date +"%y-%m-%d-%H-%M-%S").html
-DIR=$(dirname $OUTPUT_PDF)
+OUTPUT_PATH=$OUTPUT_PDF
 
 PUSH_PATH=$2
 if [[ ! -z $PUSH_PATH ]]; then
   if [[ ${PUSH_PATH:0:1} == "/" ]]; then
     PUSH_PATH=${PUSH_PATH:1}
   fi
-  DIR=$PUSH_PATH
-  OUTPUT_PATH="$DIR/$OUTPUT_PDF"
+  OUTPUT_PATH="$PUSH_PATH/$OUTPUT_PDF"
 fi
 
 artillery report --output $OUTPUT_PDF report.json
