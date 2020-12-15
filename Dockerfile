@@ -6,6 +6,7 @@ RUN npm i -g artillery puppeteer --allow-root --unsafe-perm=true
 
 # Copy bash script to root of container image
 COPY entrypoint.sh /entrypoint.sh
+COPY generate-pdf.js /generate-pdf.js
 
 RUN chmod +x /entrypoint.sh
 
