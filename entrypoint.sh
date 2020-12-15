@@ -21,7 +21,7 @@ fi
 
 artillery report --output report.html report.json
 
-node generate-pdf.js
+node /generate-pdf.js
 mv report.pdf $OUTPUT_PDF
 
 STATUSCODE=$(curl --silent --output resp.json --write-out "%{http_code}" -X GET -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/$DIR)
