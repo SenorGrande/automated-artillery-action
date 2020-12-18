@@ -1,5 +1,5 @@
 # Node Alpine container image
-FROM node:12.18.3-buster-slim@sha256:dd6aa3ed10af4374b88f8a6624aeee7522772bb08e8dd5e917ff729d1d3c3a4f
+FROM node:latest
     
 # update and add all the steps for running with xvfb
 RUN apt-get update &&\
