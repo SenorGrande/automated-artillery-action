@@ -12,9 +12,11 @@ RUN apk update && apk add --no-cache nmap && \
       ttf-freefont \
       nss
 
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+
 # Install artillery globally
 RUN npm i -g artillery --allow-root --unsafe-perm=true
-# RUN npm i puppeteer
+RUN npm i puppeteer
 
 # Copy bash script to root of container image
 COPY entrypoint.sh /entrypoint.sh
