@@ -19,10 +19,6 @@ RUN apt-get update && apt-get install -y wget --no-install-recommends \
     && apt-get purge --auto-remove -y curl \
     && rm -rf /src/*.deb
 
-# It's a good idea to use dumb-init to help prevent zombie chrome processes.
-ADD https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 /usr/local/bin/dumb-init
-RUN chmod +x /usr/local/bin/dumb-init
-
 # Install artillery globally
 RUN npm i -g artillery --allow-root --unsafe-perm=true
 RUN npm i puppeteer
@@ -46,6 +42,4 @@ USER pptruser
 EXPOSE 8084
 
 # Execute Bash script on container start up
-# ENTRYPOINT ["/entrypoint.sh"]
-ENTRYPOINT ["dumb-init", "--"]
-CMD ["./entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
