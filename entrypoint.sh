@@ -8,7 +8,7 @@ echo "Running Load Test"
 
 artillery run --output report.json $1
 
-OUTPUT_PDF=$(date +"%y-%m-%d-%H-%M-%S").html
+OUTPUT_PDF=$(date +"%y-%m-%d-%H-%M-%S").pdf
 OUTPUT_PATH=$OUTPUT_PDF
 
 PUSH_PATH=$2
@@ -19,7 +19,9 @@ if [[ ! -z $PUSH_PATH ]]; then
   OUTPUT_PATH="$PUSH_PATH/$OUTPUT_PDF"
 fi
 
-artillery report --output $OUTPUT_PDF report.json
+artillery report --output report.html report.json
+node /generate-pdf.js
+mv report.pdf $OUTPUT_PDF
 
 STATUSCODE=$(curl --silent --output resp.json --write-out "%{http_code}" -X GET -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/$DIR)
 
