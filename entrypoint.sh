@@ -20,8 +20,10 @@ if [[ ! -z $PUSH_PATH ]]; then
 fi
 
 artillery report --output report.html report.json
-
-sleep 60
+echo "Working Directory"
+pwd
+echo "list files"
+ls
 node /generate-pdf.js
 mv report.pdf $OUTPUT_PDF
 # mv report.html $OUTPUT_PDF
