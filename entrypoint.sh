@@ -20,13 +20,8 @@ if [[ ! -z $PUSH_PATH ]]; then
 fi
 
 artillery report --output report.html report.json
-echo "Working Directory"
-pwd
-echo "list files"
-ls
 node /generate-pdf.js
 mv report.pdf $OUTPUT_PDF
-# mv report.html $OUTPUT_PDF
 
 STATUSCODE=$(curl --silent --output resp.json --write-out "%{http_code}" -X GET -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/$DIR)
 
