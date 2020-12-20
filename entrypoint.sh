@@ -21,6 +21,7 @@ fi
 
 artillery report --output report.html report.json
 
+sleep 60
 node /generate-pdf.js
 mv report.pdf $OUTPUT_PDF
 # mv report.html $OUTPUT_PDF
